@@ -19,15 +19,22 @@ package crackingthecodinginterview;
 import java.util.*;
 public class ChapterOne
 {
+   /*************************************************************************************************************************
+   *                                        1.1 isUnique                                                                    *
+   **************************************************************************************************************************/
+   public static boolean isUniqueNaive(String s) {
+       HashSet<Character> seenCharacters = new HashSet<>();
+       for(int i = 0; i < s.length(); i++){
+          if(seenCharacters.contains(s.charAt(i))) return false;
+          seenCharacters.add(s.charAt(i));
+       }
+       return true;
+   } 
+   
   /*************************************************************************************************************************
    *                                        1.6 String Compression Start                                                   *
    *************************************************************************************************************************/
-   public static void compressTest(){
-       System.out.println(compress("aaabbbccaa"));
-       System.out.println(compress("zlajsfowfgwqpgkjasdhjkadfohoklmnaopqrstfuvxqwyzakgdopadjkoperherio"));
-       System.out.println(compress("abc"));
-       System.out.println(compress("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa56]3126p[olha.,.12512621opkdfhglafjm"));
-   }
+   
    //Uses space for O(n) time, HashMap
    public static String compress(String s){
        HashMap<Character,Integer> map = new HashMap<>();
@@ -47,7 +54,7 @@ public class ChapterOne
        else     return ret;
    }
    //No extra space used, only what is needed to meet the requirements. Ternary operator used for elegance. 
-   //Also uses String Bild
+   //Also uses String builder
    public static String compressBookSolution(String s){
        StringBuilder compressed = new StringBuilder();
        int countConsecutive = 0;
