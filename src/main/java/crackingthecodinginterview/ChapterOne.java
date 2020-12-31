@@ -50,7 +50,7 @@ public class ChapterOne
            ret = ret + c + map.get(c);
        }
    
-       if(s.length() <= ret.length()) return s;
+       if(s.length() < ret.length()) return s;
        else     return ret;
    }
    //No extra space used, only what is needed to meet the requirements. Ternary operator used for elegance. 
@@ -66,9 +66,10 @@ public class ChapterOne
                 compressed.append(countConsecutive);
                 countConsecutive = 0;
             }
+            System.out.println("Woah");
        }
        
-       return compressed.length() < s.length() ? compressed.toString() : s;
+       return compressed.length() <  s.length() ? compressed.toString() : s;
        
    }
 }
