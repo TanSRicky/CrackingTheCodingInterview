@@ -19,7 +19,9 @@ package crackingthecodinginterview;
 import java.util.*;
 public class ChapterOne
 {
-
+  /*************************************************************************************************************************
+   *                                        1.6 String Compression Start                                                   *
+   *************************************************************************************************************************/
    public static void compressTest(){
        System.out.println(compress("aaabbbccaa"));
        System.out.println(compress("zlajsfowfgwqpgkjasdhjkadfohoklmnaopqrstfuvxqwyzakgdopadjkoperherio"));
@@ -45,6 +47,7 @@ public class ChapterOne
        else     return ret;
    }
    //No extra space used, only what is needed to meet the requirements. Ternary operator used for elegance. 
+   //Also uses String Bild
    public static String compressBookSolution(String s){
        StringBuilder compressed = new StringBuilder();
        int countConsecutive = 0;
