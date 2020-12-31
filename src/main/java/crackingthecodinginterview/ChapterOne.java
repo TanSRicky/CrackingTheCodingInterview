@@ -22,6 +22,9 @@ public class ChapterOne
    /*************************************************************************************************************************
    *                                        1.1 isUnique                                                                    *
    **************************************************************************************************************************/
+   
+   //Initial assumptions:
+   //Didnt wonder about ASCII or Unicode, used java libraries. 
    public static boolean isUniqueNaive(String s) {
        HashSet<Character> seenCharacters = new HashSet<>();
        for(int i = 0; i < s.length(); i++){
@@ -31,8 +34,23 @@ public class ChapterOne
        return true;
    } 
    
-  /*************************************************************************************************************************
-   *                                        1.6 String Compression Start                                                   *
+   public static boolean isUniqueBookSolution(String s){
+       int checker = 0;
+       for(int i = 0; i < s.length(); i++){
+           int val = s.charAt(i) - 'a';
+           
+           if((checker & (1<<val)) > 0) {
+               return false;
+           }
+           checker |= (1  << val);
+       }
+           return true;
+           
+       }
+   
+   
+   /*************************************************************************************************************************
+   *                                        1.6 String Compression                                                 *
    *************************************************************************************************************************/
    public static class Spot {
       char letter;
@@ -80,7 +98,8 @@ public class ChapterOne
    public static String compressBookSolution(String s){
        StringBuilder compressed = new StringBuilder();
        int countConsecutive = 0;
-        for (int i = 0; i < s.length(); i++){
+       
+       for (int i = 0; i < s.length(); i++){
             countConsecutive++;
             
             if( i + 1 >= s.length() || s.charAt(i) != s.charAt(i +1)) {

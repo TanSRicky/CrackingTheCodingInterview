@@ -34,6 +34,7 @@ public class TestBench {
     
    public static void isUniqueTest() {
        System.out.println(isUniqueNaive("abcdef"));
+       System.out.println(isUniqueBookSolution("abcdef"));
        System.out.println(isUniqueNaive("aabbccddeeff"));
        System.out.println(isUniqueNaive("abcdefa"));
    }
