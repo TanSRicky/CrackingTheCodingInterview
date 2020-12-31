@@ -34,24 +34,46 @@ public class ChapterOne
   /*************************************************************************************************************************
    *                                        1.6 String Compression Start                                                   *
    *************************************************************************************************************************/
-   
-   //Uses space for O(n) time, HashMap
+   public static class Spot {
+      char letter;
+      int count = 0;
+      public Spot(char c, int cv){
+          this.letter = c;
+          this.count = cv;
+      }
+      
+      public void addCount() {
+          this.count = this.count + 1;
+      }
+   }
+   //Uses space for O(n) time, HashMap implemented using Spot object to maintain uniqueness of similar characters in different sequences i.e aaabbaa
    public static String compress(String s){
-       HashMap<Character,Integer> map = new HashMap<>();
-       for(int i = 0; i < s.length(); i++) {
-           if(map.containsKey(s.charAt(i))){
-                  map.put(s.charAt(i), map.get(s.charAt(i)) + 1);
-           } else {
-                   map.put(s.charAt(i), 1);
-               }
+       ArrayList<Spot> spotCount = new ArrayList<>();
+       int runner;
+       for(int holder = 0; holder < s.length(); ){
+           runner = holder + 1;
+           Spot currSpot = new Spot(s.charAt(holder),1);
+           
+
+             while(runner < s.length() && s.charAt(runner) == s.charAt(holder)){
+                   runner++;
+                   currSpot.count++;
+             }
+        //  System.out.println(holder + " " + runner +" "+ currSpot.count + " " + currSpot.letter );
+           spotCount.add(currSpot);
+           holder = runner;
        }
-       String ret = "";
-       for(Character c : map.keySet()) {
-           ret = ret + c + map.get(c);
+       
+       StringBuilder ret = new StringBuilder();
+       for(Spot spot : spotCount) {
+           ret.append(spot.letter);
+           ret.append(spot.count);
        }
-   
-       if(s.length() < ret.length()) return s;
-       else     return ret;
+  
+              
+       return ret.length() <  s.length() ? ret.toString() : s;
+       
+               
    }
    //No extra space used, only what is needed to meet the requirements. Ternary operator used for elegance. 
    //Also uses String builder
@@ -66,7 +88,7 @@ public class ChapterOne
                 compressed.append(countConsecutive);
                 countConsecutive = 0;
             }
-            System.out.println("Woah");
+     
        }
        
        return compressed.length() <  s.length() ? compressed.toString() : s;
