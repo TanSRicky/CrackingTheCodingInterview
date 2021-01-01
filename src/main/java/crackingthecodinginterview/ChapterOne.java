@@ -33,7 +33,8 @@ public class ChapterOne
        }
        return true;
    } 
-   
+      
+   // Book solution maps the value into bits, and then checks to see if it is in our bit vector, if not add it to our bit vector. If it is (bitwise and) > 0 then we return false
    public static boolean isUniqueBookSolution(String s){
        int checker = 0;
        for(int i = 0; i < s.length(); i++){
