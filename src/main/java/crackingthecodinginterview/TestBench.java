@@ -20,23 +20,21 @@ public class TestBench {
     }
     
     public static void compressTest(){
-        
-               System.out.println(compressBookSolution("aaabbbccc"));
+       System.out.println(compressBookSolution("aaabbbccc"));
        System.out.println(compress("aaabbbccc"));
        System.out.println(compressBookSolution("zlajsfowfgwqpgkjasdhjkadfohoklmnaopqrstfuvxqwyzakgdopadjkoperherio"));
        System.out.println(compress("zlajsfowfgwqpgkjasdhjkadfohoklmnaopqrstfuvxqwyzakgdopadjkoperherio"));
-       
        System.out.println(compressBookSolution("abc"));
        System.out.println(compress("abc"));
-       
-
    }
     
    public static void isUniqueTest() {
        System.out.println(isUniqueNaive("abcdef"));
        System.out.println(isUniqueBookSolution("abcdef"));
        System.out.println(isUniqueNaive("aabbccddeeff"));
+       System.out.println(isUniqueBookSolution("aabbccddeeff"));
        System.out.println(isUniqueNaive("abcdefa"));
+       System.out.println(isUniqueBookSolution("abcdefa"));
    }
     
 }

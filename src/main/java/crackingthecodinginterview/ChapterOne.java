@@ -37,18 +37,13 @@ public class ChapterOne
    public static boolean isUniqueBookSolution(String s){
        int checker = 0;
        for(int i = 0; i < s.length(); i++){
-           int val = s.charAt(i) - 'a'; 
-           System.out.println(s.charAt(i));
-           System.out.println(val);
-           System.out.println(1<<val);
-           System.out.println(checker);
-           System.out.println((checker & (1<<val)));
-           System.out.println();
-           if((checker & (1<<val)) > 0) {
+           int val = s.charAt(i) - '0'; // a->0, b->1...z->
+           
+           if((checker & (1<<val)) > 0) {  //on first iteration, nothing is in checker
                return false;
            }
-           checker |= (1  << val);
-           System.out.println(checker);
+           checker |= (1  << val); // add val to checker
+    
        }
            return true;
            
