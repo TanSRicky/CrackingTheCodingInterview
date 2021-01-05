@@ -18,8 +18,11 @@ public class TestBench {
         //compressTest();
         //isUniqueTest();
         permutationTest();
+        URLifyTest();
     }
-    
+    public static void URLifyTest(){
+        System.out.println(URLify("hello test"));
+    }
     public static void permutationTest(){
         System.out.println(checkPermutation("abc","cba"));
            System.out.println(checkPermutation("abc","cbaa"));
