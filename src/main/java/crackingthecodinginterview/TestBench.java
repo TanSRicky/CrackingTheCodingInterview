@@ -15,10 +15,15 @@ import static crackingthecodinginterview.ChapterOne.*;
 public class TestBench {
     
     public static void main(String[] args) {
-        compressTest();
-        isUniqueTest();
+        //compressTest();
+        //isUniqueTest();
+        permutationTest();
     }
     
+    public static void permutationTest(){
+        System.out.println(checkPermutation("abc","cba"));
+           System.out.println(checkPermutation("abc","cbaa"));
+    }
     public static void compressTest(){
        System.out.println(compressBookSolution("aaabbbccc"));
        System.out.println(compress("aaabbbccc"));

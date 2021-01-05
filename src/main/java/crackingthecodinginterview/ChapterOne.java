@@ -50,7 +50,21 @@ public class ChapterOne
            
        }
    
-   
+   /*************************************************************************************************************************
+   *                                        1.2 Check Permutation                                           *
+   *************************************************************************************************************************/
+   public static boolean checkPermutation(String str, String cmprStr){
+       if(str.length() != cmprStr.length()) return false;
+       int[] strTwo  = new int[128],strOne = new int[128];
+       for(int i = 0; i < str.length(); i++){
+          strOne[str.charAt(i)]++;
+          strTwo[cmprStr.charAt(i)]++;
+       }
+       for(int i = 0; i < 128; i++){
+           if(strOne[i] != strTwo[i]) return false;
+       }
+       return true;
+   }
    /*************************************************************************************************************************
    *                                        1.6 String Compression                                                 *
    *************************************************************************************************************************/
