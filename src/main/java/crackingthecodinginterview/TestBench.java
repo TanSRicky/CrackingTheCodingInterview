@@ -23,9 +23,10 @@ public class TestBench {
     public static void URLifyTest(){
         System.out.println(URLify("hello test"));
     }
+    
     public static void permutationTest(){
         System.out.println(checkPermutation("abc","cba"));
-           System.out.println(checkPermutation("abc","cbaa"));
+        System.out.println(checkPermutation("abc","cbaa"));
     }
     public static void compressTest(){
        System.out.println(compressBookSolution("aaabbbccc"));
